@@ -1,4 +1,11 @@
 pandas
 numpy
 seaborn
--e .
+matplotlib
+scikit-learn
+xgboost
+lightgbm
+imbalanced-learn
+nbformat
+
+#-e .
