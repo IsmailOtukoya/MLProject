@@ -1,4 +1,6 @@
+import os
 import sys
+
 from dataclasses import dataclass
 
 import numpy as np
@@ -8,9 +10,9 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
+sys.path.append(os.path.abspath(r"C:\Users\USER\Documents\mlproject"))
 from src.exception import CustomException
 from src.logger import logging 
-import os
 
 from src.utils import save_object
 
@@ -146,8 +148,8 @@ class DataTransformation:
 
             return (
                 train_arr,
-                test_arr,
-                self.data_transformation_config.preprocessor_obj_file_path,
+                test_arr
+                #self.data_transformation_config.preprocessor_obj_file_path,
             )
         except Exception as e:
             raise CustomException(e,sys)
