@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Attrition Predictor</title>
+</head>
+<body>
+    <h1>Employee Attrition Predictor</h1>
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+
+        <div>
+            <label for="daily_rate">Daily Rate:</label>
+            <input type="number" id="daily_rate" name="daily_rate" required>
+        </div>
+
+        <div>
+            <label for="distance_from_home">Distance from Home:</label>
+            <input type="number" id="distance_from_home" name="distance_from_home" required>
+        </div>
+
+        <div>
+            <label for="education">Education (1-5):</label>
+            <input type="number" id="education" name="education" required>
+        </div>
+        
+        <div>
+            <label for="environment_satisfaction">Environment Satisfaction (1-5):</label>
+            <input type="number" id="environment_satisfaction" name="environment_satisfaction" required>
+        </div>
+
+        <div>
+            <label for="hourly_rate">Hourly Rate:</label>
+            <input type="number" id="hourly_rate" name="hourly_rate" required>
+        </div>
+
+        <div>
+            <label for="job_involvement">Job Involvment (1-4):</label>
+            <input type="number" id="job_involvement" name="job_involvement" required>
+        </div>
+
+        <div>
+            <label for="job_level">Job Level (1-5):</label>
+            <input type="number" id="job_level" name="job_level" required>
+        </div>
+
+        <div>
+            <label for="job_satisfaction">Job Satisfaction (1-5):</label>
+            <input type="number" id="job_satisfaction" name="job_satisfaction" required>
+        </div>
+
+        <div>
+            <label for="monthly_income">Monthly Income:</label>
+            <input type="number" id="monthly_income" name="monthly_income" required>
+        </div>
+
+        <div>
+            <label for="monthly_rate">Monthly Rate:</label>
+            <input type="number" id="monthly_rate" name="monthly_rate" required>
+        </div>
+
+        <div>
+            <label for="num_companies_worked">Num Companies Worked (1-10):</label>
+            <input type="number" id="num_companies_worked" name="num_companies_worked" required>
+        </div>
+
+        <div>
+            <label for="percent_salary_hike">Percent Salary Hike:</label>
+            <input type="number" id="percent_salary_hike" name="percent_salary_hike" required>
+        </div>
+
+        <div>
+            <label for="performance_rating">Performance Rating (1-5):</label>
+            <input type="number" id="performance_rating" name="performance_rating" required>
+        </div>
+
+        <div>
+            <label for="relationship_satisfaction">Relationship Satisfaction (1-5):</label>
+            <input type="number" id="relationship_satisfaction" name="relationship_satisfaction" required>
+        </div>
+
+        <div>
+            <label for="stock_option_level">Stock Option Level (1-5):</label>
+            <input type="number" id="stock_option_level" name="stock_option_level" required>
+        </div>
+
+        <div>
+            <label for="total_working_years">Total Working Years:</label>
+            <input type="number" id="total_working_years" name="total_working_years" required>
+        </div>
+        
+        <div>
+            <label for="training_times_last_year">Training Times Last Year (1-5):</label>
+            <input type="number" id="training_times_last_year" name="training_times_last_year" required>
+        </div>
+        
+        <div>
+            <label for="work_life_balance">Work Life Balance (1-5):</label>
+            <input type="number" id="work_life_balance" name="work_life_balance" required>
+        </div>
+        
+        <div>
+            <label for="years_at_company">Years at Company:</label>
+            <input type="number" id="years_at_company" name="years_at_company" required>
+        </div>
+        
+        <div>
+            <label for="years_in_current_role">Years in Current Role:</label>
+            <input type="number" id="years_in_current_role" name="years_in_current_role" required>
+        </div>
+        
+        <div>
+            <label for="years_since_last_promotion">Years Since Last Promotion:</label>
+            <input type="number" id="years_since_last_promotion" name="years_since_last_promotion" required>
+        </div>
+        
+        <div>
+            <label for="years_with_curr_manager">Years with Current Manager:</label>
+            <input type="number" id="years_with_curr_manager" name="years_with_curr_manager" required>
+        </div>
+
+        <div>
+            <label for="employee_number">Employee Number:</label>
+            <input type="number" id="employee_number" name="employee_number" required>
+        </div>
+        
+        <div>
+            <label for="employee_count">Employee Count:</label>
+            <input type="number" id="employee_count" name="employee_count" required>
+        </div>
+        
+        <div>
+            <label for="standard_hours">Standard Hours:</label>
+            <input type="number" id="standard_hours" name="standard_hours" required>
+        </div>
+
+        
+        
+        <!-- Add similar input fields for other numerical features -->
+        
+        <div>
+            <label for="business_travel">Business Travel:</label>
+            <select id="business_travel" name="business_travel" required>
+                <option value="Travel_Rarely">Travel Rarely</option>
+                <option value="Travel_Frequently">Travel Frequently</option>
+                <option value="Non-Travel">Non-Travel</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="Human Resources">Human Resources</option>
+                <option value="Research & Development">Research & Development</option>
+                <option value="Sales">Sales</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="education_field">Education Field:</label>
+            <select id="education_field" name="education_field" required>
+                <option value="Life Sciences">Life Sciences</option>
+                <option value="Other">Other</option>
+                <option value="Medical">Medical</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Technical Degree">Technical Degree</option>
+                <option value="Human Resources">Human Resources</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="job_role">Job Role:</label>
+            <select id="job_role" name="job_role" required>
+                <option value="Sales Executive">Sales Executive</option>
+                <option value="Research Scientist">Research Scientist</option>
+                <option value="Laboratory Technician">Laboratory Technician</option>
+                <option value="Manufacturing Director">Manufacturing Director</option>
+                <option value="Healthcare Representative">Healthcare Representative</option>
+                <option value="Manager">Manager</option>
+                <option value="Sales Representative">Sales Representative</option>
+                <option value="Research Director">Research Director</option>
+                <option value="Human Resources">Human Resources</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="marital_status">Marital Status:</label>
+            <select id="marital_status" name="marital_status" required>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="over_time">Over Time:</label>
+            <select id="over_time" name="over_time" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="over_18">Over 18:</label>
+            <select id="over_18" name="over_18" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Add similar select fields for other categorical features -->
+
+        <input type="submit" value="Predict Attrition">
+    </form>
+    <h2>Prediction is : {{ results }}</h2>
+</body>
+</html>

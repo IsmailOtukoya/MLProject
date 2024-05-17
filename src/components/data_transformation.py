@@ -32,25 +32,29 @@ class DataTransformation:
         
         
         try:
-            numerical_columns = ['Age', 'DailyRate', 'DistanceFromHome', 'Education', 'EmployeeCount', 
-                                 'EmployeeNumber', 'EnvironmentSatisfaction', 'HourlyRate', 'JobInvolvement', 
+            numerical_columns = ['Age', 'DailyRate', 'DistanceFromHome', 'Education',
+                                 'EnvironmentSatisfaction', 'HourlyRate', 'JobInvolvement', 
                                  'JobLevel', 'JobSatisfaction', 'MonthlyIncome', 'MonthlyRate', 
                                  'NumCompaniesWorked', 'PercentSalaryHike', 'PerformanceRating',
-                                'RelationshipSatisfaction', 'StandardHours', 'StockOptionLevel', 
+                                'RelationshipSatisfaction', 'StockOptionLevel', 
                                 'TotalWorkingYears', 'TrainingTimesLastYear', 'WorkLifeBalance', 
                                 'YearsAtCompany', 'YearsInCurrentRole', 'YearsSinceLastPromotion', 
-                                'YearsWithCurrManager',
+                                'YearsWithCurrManager', 'EmployeeCount', 'StandardHours', 'EmployeeNumber'
                                 ]
             
             categorical_columns = ['BusinessTravel', 'Department', 
                                    'EducationField', 'Gender', 'JobRole', 'MaritalStatus', 
-                                   'Over18', 'OverTime',
+                                   'OverTime', 'Over18'
                                    ]
+            
+
+            #cols_to_drop = ['EmployeeCount', 'Over18', 'StandardHours', 'EmployeeNumber']
             
             num_pipeline = Pipeline(
                 steps = [
                     ("imputer", SimpleImputer(strategy="median")),
                     ("scaler", StandardScaler()) # Scale numerical Features
+                    
                 ]
 
             )
@@ -66,8 +70,7 @@ class DataTransformation:
 
             )
 
-            # Specify columns to drop
-            cols_to_drop = ['EmployeeCount', 'Over18', 'StandardHours', 'EmployeeNumber']
+           
 
             logging.info(f"Categorical columns: {categorical_columns}")
             logging.info(f"Numerical columns: {numerical_columns}")
@@ -78,15 +81,13 @@ class DataTransformation:
                     [
                     ('num', num_pipeline, numerical_columns),
                     ('cat', cat_pipeline, categorical_columns),
-                    ('drop', 'drop', cols_to_drop)  # Step to drop columns
-
+                    #('drop', 'drop', cols_to_drop)  # Step to drop columns
                     ]
 
             )
 
 
-            #Log a message for dropped columns
-            logging.info(f"Dropped columns: {cols_to_drop}")
+            
 
 
             return preprocessor
@@ -115,7 +116,7 @@ class DataTransformation:
                                 'RelationshipSatisfaction',  'StockOptionLevel', 
                                 'TotalWorkingYears', 'TrainingTimesLastYear', 'WorkLifeBalance', 
                                 'YearsAtCompany', 'YearsInCurrentRole', 'YearsSinceLastPromotion', 
-                                'YearsWithCurrManager',
+                                'YearsWithCurrManager', 'EmployeeNumber', 'EmployeeCount', 'StandardHours'
                                 ]
             
             input_feature_train_df = train_df.drop(columns=(target_column_name), axis=1)

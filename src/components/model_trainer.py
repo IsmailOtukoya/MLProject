@@ -8,7 +8,7 @@ from catboost import CatBoostClassifier
 from sklearn.linear_model import LogisticRegression
 
 
-#sys.path.append(os.path.abspath(r"C:\Users\USER\Documents\mlproject"))
+sys.path.append(os.path.abspath(r"C:\Users\USER\Documents\mlproject"))
 from src.exception import CustomException
 from src.logger import logging
 
